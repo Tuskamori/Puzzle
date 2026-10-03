@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bq8r13nu2ets5"]
+
+[ext_resource type="Texture2D" uid="uid://bbd7kysytffds" path="res://textures/stone wall/TCom_Wall_Stone3_2x2_1K_albedo.jpg" id="1_s3y87"]
+[ext_resource type="Texture2D" uid="uid://byhp1ssffrnqn" path="res://textures/stone wall/TCom_Wall_Stone3_2x2_1K_ao.jpg" id="2_53ahv"]
+[ext_resource type="Texture2D" uid="uid://b1skiylvigw23" path="res://textures/stone wall/TCom_Wall_Stone3_2x2_1K_normal.jpg" id="3_4djhp"]
+[ext_resource type="Texture2D" uid="uid://2v53gb214ia7" path="res://textures/stone wall/TCom_Wall_Stone3_2x2_1K_roughness.jpg" id="4_udgol"]
+
+[resource]
+albedo_texture = ExtResource("1_s3y87")
+roughness_texture = ExtResource("4_udgol")
+normal_enabled = true
+normal_texture = ExtResource("3_4djhp")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_53ahv")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

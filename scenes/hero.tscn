@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://odma1ugb35r2"]
+
+[ext_resource type="Script" uid="uid://e5xce70dmf6m" path="res://scripts/hero.gd" id="1_780bu"]
+[ext_resource type="Script" uid="uid://btmtl0x4fv743" path="res://scripts/camera.gd" id="2_yvbpl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_85g3d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_svdc1"]
+material = SubResource("StandardMaterial3D_85g3d")
+radius = 0.3
+height = 1.7
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_svdc1"]
+radius = 0.3
+height = 1.7
+
+[node name="Hero" type="CharacterBody3D" unique_id=808683145]
+script = ExtResource("1_780bu")
+
+[node name="Corps" type="MeshInstance3D" parent="." unique_id=1880703859]
+mesh = SubResource("CapsuleMesh_svdc1")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=747044424]
+shape = SubResource("CapsuleShape3D_svdc1")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1004792802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_yvbpl")
+
+[node name="Ray" type="RayCast3D" parent="Camera" unique_id=510574664]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, 1.5, 0)
+
+[node name="Reticule" type="ColorRect" parent="." unique_id=1082402021]
+custom_minimum_size = Vector2(2, 2)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pickup" type="Label" parent="Reticule" unique_id=1643099430]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -27.0
+offset_right = 19.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "E"
+
+[node name="Label" type="Label" parent="." unique_id=529797712]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

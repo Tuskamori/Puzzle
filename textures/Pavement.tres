@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://nd61mlgeu06f"]
+
+[ext_resource type="Texture2D" uid="uid://c4cghnhc8xk42" path="res://textures/Medieval Pavement/TCom_Pavement_Medieval_1K_albedo.jpg" id="1_bnuku"]
+[ext_resource type="Texture2D" uid="uid://decrqr6micke7" path="res://textures/Medieval Pavement/TCom_Pavement_Medieval_1K_ao.jpg" id="2_c6dn4"]
+[ext_resource type="Texture2D" uid="uid://cr0io5pkp06yo" path="res://textures/Medieval Pavement/TCom_Pavement_Medieval_1K_normal.jpg" id="3_pl826"]
+[ext_resource type="Texture2D" uid="uid://beqhcp2s7dma2" path="res://textures/Medieval Pavement/TCom_Pavement_Medieval_1K_roughness.jpg" id="4_wedni"]
+
+[resource]
+albedo_texture = ExtResource("1_bnuku")
+roughness_texture = ExtResource("4_wedni")
+normal_enabled = true
+normal_texture = ExtResource("3_pl826")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_c6dn4")
+uv1_triplanar = true
+uv1_world_triplanar = true

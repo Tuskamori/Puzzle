@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ybf88w8auowu"]
+
+[ext_resource type="Texture2D" uid="uid://c2tkhkwj8rpup" path="res://textures/rocks/Rocks_Hexagons_002_basecolor.jpg" id="1_evl7e"]
+[ext_resource type="Texture2D" uid="uid://dvwok5oi055rx" path="res://textures/rocks/Rocks_Hexagons_002_ambientOcclusion.jpg" id="2_nvjmu"]
+[ext_resource type="Texture2D" uid="uid://b7wshesuxebjt" path="res://textures/rocks/Rocks_Hexagons_002_normal.jpg" id="3_kwndh"]
+[ext_resource type="Texture2D" uid="uid://c6o5lf0yce2gv" path="res://textures/rocks/Rocks_Hexagons_002_roughness.jpg" id="4_se38b"]
+
+[resource]
+albedo_texture = ExtResource("1_evl7e")
+roughness_texture = ExtResource("4_se38b")
+normal_enabled = true
+normal_texture = ExtResource("3_kwndh")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_nvjmu")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
