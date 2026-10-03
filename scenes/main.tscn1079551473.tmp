@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://bjmyp48wu6wry"]
+
+[ext_resource type="Material" uid="uid://nd61mlgeu06f" path="res://textures/Pavement.tres" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://odma1ugb35r2" path="res://scenes/hero.tscn" id="1_o5qli"]
+[ext_resource type="Material" uid="uid://ybf88w8auowu" path="res://textures/Hexagons.tres" id="2_tbgi4"]
+[ext_resource type="Material" uid="uid://bq8r13nu2ets5" path="res://textures/Brick walls.tres" id="3_tefeu"]
+[ext_resource type="Script" uid="uid://d0vad776nrm7d" path="res://scripts/puzzle_1.gd" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://diwx0hyniwhdh" path="res://scripts/cube.gd" id="5_tbgi4"]
+[ext_resource type="Script" uid="uid://bnc6fpul6ybq6" path="res://scripts/slot.gd" id="6_tefeu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_svdc1"]
+material = ExtResource("1_jyhfs")
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_412mj"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svdc1"]
+size = Vector3(10, 3, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_412mj"]
+material = ExtResource("3_tefeu")
+size = Vector3(10, 3, 0.1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t3ayr"]
+
+[sub_resource type="Sky" id="Sky_412mj"]
+sky_material = SubResource("ProceduralSkyMaterial_t3ayr")
+
+[sub_resource type="Environment" id="Environment_svdc1"]
+background_mode = 2
+sky = SubResource("Sky_412mj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
+size = Vector3(0.12, 0.02, 0.12)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
+size = Vector2(0.12, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t3ayr"]
+size = Vector3(1, 0.7, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t3ayr"]
+material = ExtResource("2_tbgi4")
+size = Vector3(1, 0.7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd14w"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
+albedo_color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kurec"]
+material = SubResource("StandardMaterial3D_o6xl0")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Main" type="Node3D" unique_id=690907527]
+
+[node name="Sol" type="StaticBody3D" parent="." unique_id=1522213158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sol" unique_id=1513807758]
+mesh = SubResource("BoxMesh_svdc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol" unique_id=1634301334]
+shape = SubResource("BoxShape3D_412mj")
+
+[node name="Murs" type="StaticBody3D" parent="." unique_id=1170730625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Murs" unique_id=2080907463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+shape = SubResource("BoxShape3D_svdc1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Murs/CollisionShape3D" unique_id=1846245602]
+mesh = SubResource("BoxMesh_412mj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Murs" unique_id=1355171062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+shape = SubResource("BoxShape3D_svdc1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Murs/CollisionShape3D2" unique_id=1356118761]
+mesh = SubResource("BoxMesh_412mj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Murs" unique_id=411569440]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, -25)
+shape = SubResource("BoxShape3D_svdc1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Murs/CollisionShape3D3" unique_id=738430306]
+mesh = SubResource("BoxMesh_412mj")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Murs" unique_id=1292708974]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, -25)
+shape = SubResource("BoxShape3D_svdc1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Murs/CollisionShape3D4" unique_id=296891259]
+mesh = SubResource("BoxMesh_412mj")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1874025213]
+environment = SubResource("Environment_svdc1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=205541924]
+transform = Transform3D(1, 0, 0, 0, 0.7313537, 0.6819984, 0, -0.6819984, 0.7313537, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.7
+
+[node name="Hero" parent="." unique_id=808683145 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4654931, 0.79999995, 1.9087652)
+
+[node name="Puzzle1" type="StaticBody3D" parent="." unique_id=837843119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2063543, 0.29999983, -1.4038932)
+script = ExtResource("4_o6xl0")
+
+[node name="Slot1" type="StaticBody3D" parent="Puzzle1" unique_id=2043989044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.36, 0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot1" unique_id=1354006570]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot1" unique_id=894847553]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot2" type="StaticBody3D" parent="Puzzle1" unique_id=254066239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.36, 0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot2" unique_id=210679967]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot2" unique_id=1932016770]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot3" type="StaticBody3D" parent="Puzzle1" unique_id=1406025287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.36, 0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot3" unique_id=853801877]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot3" unique_id=999779922]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot4" type="StaticBody3D" parent="Puzzle1" unique_id=1486017031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.36, 0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot4" unique_id=1869556563]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot4" unique_id=138089070]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot5" type="StaticBody3D" parent="Puzzle1" unique_id=1846290625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30000007, 0.36, 0.1)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot5" unique_id=1977069424]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot5" unique_id=1451673984]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot6" type="StaticBody3D" parent="Puzzle1" unique_id=565869527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100000024, 0.36, 0.1)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot6" unique_id=1228969616]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot6" unique_id=1037667338]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot7" type="StaticBody3D" parent="Puzzle1" unique_id=250152479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100000024, 0.36, 0.1)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot7" unique_id=1890173185]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot7" unique_id=1601108824]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot8" type="StaticBody3D" parent="Puzzle1" unique_id=1908997597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.36, 0.1)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot8" unique_id=1648369643]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot8" unique_id=1635535068]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot9" type="StaticBody3D" parent="Puzzle1" unique_id=308963574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30000007, 0.36, -0.104)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot9" unique_id=1530100299]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot9" unique_id=853393743]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot10" type="StaticBody3D" parent="Puzzle1" unique_id=1574763290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100000024, 0.36, -0.104)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot10" unique_id=847555071]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot10" unique_id=1727670763]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot11" type="StaticBody3D" parent="Puzzle1" unique_id=2144877101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100000024, 0.36, -0.104)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot11" unique_id=703733031]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot11" unique_id=1562034676]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot12" type="StaticBody3D" parent="Puzzle1" unique_id=1508032031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.36, -0.104)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot12" unique_id=268576725]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot12" unique_id=1640158024]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot13" type="StaticBody3D" parent="Puzzle1" unique_id=1241367016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30000007, 0.36, -0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot13" unique_id=625537410]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot13" unique_id=1062460062]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot14" type="StaticBody3D" parent="Puzzle1" unique_id=2059578877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.100000024, 0.36, -0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot14" unique_id=1737088104]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot14" unique_id=1626408560]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot15" type="StaticBody3D" parent="Puzzle1" unique_id=234558334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100000024, 0.36, -0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot15" unique_id=423304396]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot15" unique_id=171780524]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Slot16" type="StaticBody3D" parent="Puzzle1" unique_id=517122300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.36, -0.3)
+collision_layer = 2
+script = ExtResource("6_tefeu")
+
+[node name="Collision" type="CollisionShape3D" parent="Puzzle1/Slot16" unique_id=1125674382]
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Puzzle1/Slot16" unique_id=452065952]
+mesh = SubResource("PlaneMesh_tefeu")
+
+[node name="Table" type="CollisionShape3D" parent="Puzzle1" unique_id=318932272]
+shape = SubResource("BoxShape3D_t3ayr")
+
+[node name="Table" type="MeshInstance3D" parent="Puzzle1/Table" unique_id=445357354]
+mesh = SubResource("BoxMesh_t3ayr")
+
+[node name="Cube" type="StaticBody3D" parent="." unique_id=1051005744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4793019, 0.69999975, -0.96939355)
+script = ExtResource("5_tbgi4")
+value = 1
+
+[node name="Collision" type="CollisionShape3D" parent="Cube" unique_id=2146639665]
+shape = SubResource("BoxShape3D_cd14w")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cube" unique_id=1795528891]
+mesh = SubResource("BoxMesh_kurec")
+
+[node name="Cube2" type="StaticBody3D" parent="." unique_id=1381974804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2951065, 0.69999975, -0.96939355)
+script = ExtResource("5_tbgi4")
+value = 2
+
+[node name="Collision" type="CollisionShape3D" parent="Cube2" unique_id=2007685388]
+shape = SubResource("BoxShape3D_cd14w")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cube2" unique_id=821853752]
+mesh = SubResource("BoxMesh_kurec")
+
+[node name="Cube3" type="StaticBody3D" parent="." unique_id=1634925604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1110027, 0.69999975, -0.96939355)
+script = ExtResource("5_tbgi4")
+value = 3
+
+[node name="Collision" type="CollisionShape3D" parent="Cube3" unique_id=1971044815]
+shape = SubResource("BoxShape3D_cd14w")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cube3" unique_id=942622301]
+mesh = SubResource("BoxMesh_kurec")
+
+[node name="Cube4" type="StaticBody3D" parent="." unique_id=342939785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9009502, 0.69999975, -0.96939355)
+script = ExtResource("5_tbgi4")
+value = 4
+
+[node name="Collision" type="CollisionShape3D" parent="Cube4" unique_id=1433343388]
+shape = SubResource("BoxShape3D_cd14w")
+
+[node name="Mesh" type="MeshInstance3D" parent="Cube4" unique_id=444042857]
+mesh = SubResource("BoxMesh_kurec")
