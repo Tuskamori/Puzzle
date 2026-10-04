@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 		$Camera/Ray.collision_mask = 2
 	else:
 		$Camera/Ray.collision_mask = 1
-	$Label.text = str($"../Puzzle1".total)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

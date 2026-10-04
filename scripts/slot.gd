@@ -2,6 +2,8 @@ extends StaticBody3D
 
 @export var value: int
 
+@onready var pickup: AudioStreamPlayer = $"/root/Main/Pickup"
+
 func interact() -> void:
 	if $"/root/Main/Hero".item:
 		$"/root/Main/Hero".item.connect("taken",collision_change)
@@ -13,6 +15,7 @@ func interact() -> void:
 		if get_parent().has_method("update"):
 			get_parent().update()
 		collision_layer = 0
+		pickup.play()
 
 func collision_change() -> void:
 	$"/root/Main/Hero".item.disconnect("taken",collision_change)

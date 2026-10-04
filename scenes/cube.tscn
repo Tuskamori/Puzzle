@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bauoirkvafhbx"]
 
 [ext_resource type="Script" uid="uid://diwx0hyniwhdh" path="res://scripts/cube.gd" id="1_7ufek"]
+[ext_resource type="AudioStream" uid="uid://duh6vi61jcbh2" path="res://sounds/Pickup.mp3" id="2_8viuf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cd14w"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -26,3 +27,7 @@ mesh = SubResource("BoxMesh_kurec")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.0077557564, 0.051831722)
 pixel_size = 0.003
 text = "9"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=297761761]
+stream = ExtResource("2_8viuf")
+max_polyphony = 2

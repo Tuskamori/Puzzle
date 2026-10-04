@@ -1,6 +1,7 @@
 extends StaticBody3D
 
 @export var value: int
+@onready var pickup: AudioStreamPlayer = $"/root/Main/Pickup"
 
 signal taken
 
@@ -16,3 +17,4 @@ func interact() -> void:
 		rotation = Vector3(0,0,0)
 		$"/root/Main/Hero".item = self
 		taken.emit()
+		pickup.play()

@@ -7,20 +7,25 @@
 [ext_resource type="Script" uid="uid://d0vad776nrm7d" path="res://scripts/puzzle_1.gd" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://bnc6fpul6ybq6" path="res://scripts/slot.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dx4jye0v3r6in" path="res://scripts/plateau.gd" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://duh6vi61jcbh2" path="res://sounds/Pickup.mp3" id="7_ya4ey"]
+[ext_resource type="ArrayMesh" uid="uid://ca3ufv7s12pim" path="res://models/10057_wooden_door_v3_iterations-2.obj" id="8_tipki"]
+[ext_resource type="Script" uid="uid://bu6mc183otkxf" path="res://scripts/exit.gd" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://bvn87tsnpbgnr" path="res://sounds/Locked door.mp3" id="10_choun"]
+[ext_resource type="AudioStream" uid="uid://ec1s8uss1r45" path="res://sounds/Door unlock.mp3" id="12_eb6dy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_svdc1"]
 material = ExtResource("1_jyhfs")
-size = Vector3(10, 0.1, 10)
+size = Vector3(5, 0.1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_412mj"]
-size = Vector3(10, 0.1, 10)
+size = Vector3(5, 0.1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svdc1"]
-size = Vector3(10, 3, 0.1)
+size = Vector3(5, 3, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_412mj"]
 material = ExtResource("3_tefeu")
-size = Vector3(10, 3, 0.1)
+size = Vector3(5, 3, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
 size = Vector3(0.12, 0.02, 0.12)
@@ -51,10 +56,27 @@ sky_material = SubResource("ProceduralSkyMaterial_t3ayr")
 background_mode = 2
 sky = SubResource("Sky_o6xl0")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_85g3d"]
+points = PackedVector3Array(45.4835, 0.00999999, 206.92465, 45.474598, 2.5223987, 206.92465, 45.45679, 2.5223987, 206.9449, 45.45679, -2.5029383, 206.9449, 45.474598, -2.5029383, 206.92465, 45.4835, -2.5029383, 206.90439, 45.4835, 2.5223987, 206.90439, 44.45074, 2.7663, 205.91179, -45.452793, 2.5223987, 206.9449, -45.452793, -2.5029383, 206.9449, 44.45074, -2.7463, 205.91179, 44.459644, -2.7463, 205.89153, 45.4835, -2.5029383, -0.0027, 44.459644, 2.7663, 205.89153, 45.4835, 2.5223987, -0.0027, -44.446743, 2.7663, 205.91179, -45.4706, 2.5223987, 206.92465, -45.4706, -2.5029383, 206.92465, -44.446743, -2.7463, 205.91179, 44.459644, -2.7463, -0.0027, 44.459644, 2.7663, -0.0027, -44.455647, 2.7663, 205.89153, -45.4706, 2.5223987, -0.0027, -44.455647, -2.7463, 205.89153, -45.4706, -2.5029383, -0.0027, -44.455647, -2.7463, -0.0027, -44.455647, 2.7663, -0.0027)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_412mj"]
+albedo_color = Color(1, 1, 0.5529412, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_svdc1"]
+material = SubResource("StandardMaterial3D_412mj")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd14w"]
+albedo_color = Color(0.3328807, 0.33288068, 0.33288068, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kurec"]
+material = SubResource("StandardMaterial3D_cd14w")
+size = Vector3(0.01, 0.02, 0.01)
+
 [node name="Main" type="Node3D" unique_id=690907527]
 
 [node name="Hero" parent="." unique_id=808683145 instance=ExtResource("1_o5qli")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4654931, 0.79999995, 1.9087652)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8732705, 0.79999995, 1.2448958)
 
 [node name="Sol" type="StaticBody3D" parent="." unique_id=1522213158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -69,35 +91,35 @@ shape = SubResource("BoxShape3D_412mj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 25)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murs" unique_id=2080907463]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22.515)
 shape = SubResource("BoxShape3D_svdc1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Murs/CollisionShape3D" unique_id=1846245602]
 mesh = SubResource("BoxMesh_412mj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Murs" unique_id=1355171062]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.510666)
 shape = SubResource("BoxShape3D_svdc1")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Murs/CollisionShape3D2" unique_id=1356118761]
 mesh = SubResource("BoxMesh_412mj")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Murs" unique_id=411569440]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, -25)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 0, -25)
 shape = SubResource("BoxShape3D_svdc1")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Murs/CollisionShape3D3" unique_id=738430306]
 mesh = SubResource("BoxMesh_412mj")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Murs" unique_id=1292708974]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, -25)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0, -25)
 shape = SubResource("BoxShape3D_svdc1")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Murs/CollisionShape3D4" unique_id=296891259]
 mesh = SubResource("BoxMesh_412mj")
 
 [node name="Puzzle1" type="StaticBody3D" parent="." unique_id=837843119]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2063543, 0.29999983, -1.4038932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45016813, 0.29999983, -1.2663348)
 script = ExtResource("4_o6xl0")
 
 [node name="Slot1" type="StaticBody3D" parent="Puzzle1" unique_id=2043989044]
@@ -363,7 +385,7 @@ pixel_size = 0.003
 text = "0"
 
 [node name="Plateau" type="StaticBody3D" parent="." unique_id=842743612]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0625243, 0.5097797, -1.2498995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40600193, 0.5097797, -1.112341)
 script = ExtResource("7_o6xl0")
 
 [node name="Slot1" type="StaticBody3D" parent="Plateau" unique_id=841149002]
@@ -565,6 +587,19 @@ shape = SubResource("BoxShape3D_kurec")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Plateau/CollisionShape3D" unique_id=478674926]
 mesh = SubResource("BoxMesh_cd14w")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1461626431]
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1222520942]
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=2003558600]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.44126266, 1.2778571, -1.2656015)
+projection = 1
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1874025213]
 environment = SubResource("Environment_svdc1")
 
@@ -572,3 +607,46 @@ environment = SubResource("Environment_svdc1")
 transform = Transform3D(-4.371139e-08, -0.9396926, -0.34202012, 0, -0.34202012, 0.9396926, -1, 4.1075268e-08, 1.4950174e-08, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.7
+
+[node name="Door" type="MeshInstance3D" parent="." unique_id=1979419154]
+transform = Transform3D(-4.3711387e-10, 0.01, 4.3711387e-10, 0, -4.3711387e-10, 0.01, 0.01, 4.3711387e-10, 1.9106855e-17, 2.45, -0.04997301, 0)
+mesh = ExtResource("8_tipki")
+
+[node name="Area3D" type="Area3D" parent="Door" unique_id=691471353]
+transform = Transform3D(100, 9.094947e-13, 4.065758e-20, -9.094947e-13, 100, 9.094947e-13, 4.065758e-20, -9.094947e-13, 100, 0, 0, 0)
+script = ExtResource("9_85g3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Area3D" unique_id=906094669]
+transform = Transform3D(0.01, -2.7755576e-17, -1.323489e-23, 2.7755576e-17, 0.01, -2.7755574e-17, -1.4889251e-23, 2.7755576e-17, 0.01, 8.8689944e-11, -0.0020284653, -3.7252903e-09)
+shape = SubResource("ConvexPolygonShape3D_85g3d")
+
+[node name="LockedDoor" type="AudioStreamPlayer" parent="Door/Area3D" unique_id=1578153624]
+stream = ExtResource("10_choun")
+max_polyphony = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1320555646]
+transform = Transform3D(-2.8576226e-08, -0.7, -3.0598002e-08, 0.08425573, -3.381513e-08, 0.69491076, -0.69491076, 2.4685542e-08, 0.08425573, 2.434548, 1.2542416, 0.19214791)
+mesh = SubResource("PlaneMesh_svdc1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1427551569]
+transform = Transform3D(1, 0, 0, 3.5527137e-15, 1, 0, 0, 0, 1, 0.010450318, 0, 0.08619058)
+mesh = SubResource("BoxMesh_kurec")
+
+[node name="Label3D" type="Label3D" parent="MeshInstance3D" unique_id=1033411830]
+transform = Transform3D(-0.99999994, 8.940697e-08, 0, -7.1054274e-15, -4.371139e-08, 1, 8.940697e-08, 0.99999994, 4.371139e-08, 0, 0.0024058819, 0)
+pixel_size = 0.001
+text = "  1  2  2  3
+1                   3
+3                   2
+2                   1
+2                   3
+  3  1  2  2"
+font_size = 20
+
+[node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=1672421737]
+stream = ExtResource("7_ya4ey")
+volume_db = -5.0
+max_polyphony = 2
+
+[node name="DoorUnlock" type="AudioStreamPlayer" parent="." unique_id=808920214]
+stream = ExtResource("12_eb6dy")
